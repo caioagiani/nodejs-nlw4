@@ -18,5 +18,7 @@ echo "stop & remove old docker and starting new instance of [$HOST]"
 echo "wait for pg-server [$HOST] to start";
 sleep 3;
 
-echo "CREATE DATABASE $DBASE ENCODING 'UTF-8';" | docker exec -i $HOST psql -U $UNAME
+echo "CREATE DATABASE $DBASE ENCODING 'UTF-8';" \
+  "CREATE DATABASE ${DBASE}_test ENCODING 'UTF-8';" | docker exec -i $HOST psql -U $UNAME
+
 echo "\l" | docker exec -i $HOST psql -U $UNAME
