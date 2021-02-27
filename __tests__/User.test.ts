@@ -20,4 +20,13 @@ describe('Users', () => {
     expect(status).toBe(201);
     expect(body).toHaveProperty('id');
   });
+
+  it('should not create a user with an existing email', async () => {
+    const response = await request(app).post('/users').send({
+      email: 'jest@test.com',
+      name: 'Test Jest',
+    });
+
+    expect(response.status).toBe(400);
+  });
 });
