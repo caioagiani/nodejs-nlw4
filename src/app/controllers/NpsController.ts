@@ -1,10 +1,17 @@
 import { Request, Response } from 'express';
 import { getCustomRepository, Not, IsNull } from 'typeorm';
+import { UUIDv4 } from 'uuid-v4-validator';
 import { SurveysUsersRepository } from '../repositories/SurveysUsersRepository';
 
 class NpsController {
   async execute(req: Request, res: Response) {
     const { survey_id } = req.params;
+
+    if (!UUIDv4.validate(String(survey_id))) {
+      return res.status(400).json({
+        error: 'UUID is invalid.',
+      });
+    }
 
     const surveysUsersRepository = getCustomRepository(SurveysUsersRepository);
 
