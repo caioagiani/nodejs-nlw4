@@ -40,6 +40,11 @@ const requests = {
 
     return sendMailResponse;
   },
+  async nps(id: string) {
+    const npsResponse = await request(app).get(`/nps/${id}`);
+
+    return npsResponse;
+  },
 };
 
 export { requests };
