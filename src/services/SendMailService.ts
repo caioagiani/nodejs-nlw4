@@ -3,14 +3,14 @@ import { compile } from 'handlebars';
 import { createTransport } from 'nodemailer';
 
 class SendMailService {
-  async execute({ name, to, subject, description, path, user_id, link }) {
+  async execute({ name, to, subject, description, path, id, link }) {
     const templateFileContent = fs.readFileSync(path).toString('utf8');
     const mailTemplateParse = compile(templateFileContent);
     const html = mailTemplateParse({
       name,
       title: subject,
       description,
-      user_id,
+      id,
       link,
     });
 

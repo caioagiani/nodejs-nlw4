@@ -45,11 +45,13 @@ class MailController {
       subject: survey.title,
       description: survey.description,
       path: npsPath,
-      user_id: user.id,
+      id: '',
       link: `${process.env.SERVER}/answers`,
     };
 
     if (surveyAlreadyExists) {
+      builderMail.id = surveyAlreadyExists.id;
+
       await SendMailService.execute(builderMail);
 
       return res.json(surveyAlreadyExists);
@@ -61,6 +63,8 @@ class MailController {
     });
 
     await surveysUsersRepository.save(surveyUser);
+
+    builderMail.id = surveyUser.id;
 
     await SendMailService.execute(builderMail);
 
