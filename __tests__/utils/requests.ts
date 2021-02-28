@@ -45,6 +45,11 @@ const requests = {
 
     return npsResponse;
   },
+  async answer(note: number, id: string) {
+    const answerResponse = await request(app).get(`/answers/${note}?u=${id}`);
+
+    return answerResponse;
+  },
 };
 
 export { requests };

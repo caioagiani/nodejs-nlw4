@@ -1,8 +1,5 @@
-import request from 'supertest';
-import { app } from '../src/app';
-import { requests } from './utils/requests';
-
 import createConnection from '../src/database';
+import { requests } from './utils/requests';
 
 describe('Answer', () => {
   beforeAll(async () => {
@@ -13,17 +10,15 @@ describe('Answer', () => {
   it('should receive survey note', async () => {
     const sendMailResponse = await requests.sendMail();
 
-    const { status, body } = await request(app).get(
-      `/answers/7?u=${sendMailResponse.body.id}`,
-    );
+    const { status, body } = await requests.answer(7, sendMailResponse.body.id);
 
     expect(status).toBe(200);
-    expect(body).toHaveProperty('id');
     expect(body.value).toBe(7);
+    expect(body).toHaveProperty('id');
   });
 
   it('should return an error when receive survey note', async () => {
-    const { status } = await request(app).get('/answers/7?u=invalid_id');
+    const { status } = await requests.answer(7, 'invalid_id');
 
     expect(status).toBe(400);
   });
