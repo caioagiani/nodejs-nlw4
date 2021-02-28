@@ -13,4 +13,13 @@ describe('Mail', () => {
     expect(status).toBe(200);
     expect(body).toHaveProperty('id');
   });
+
+  it('should return an error when sending email with invalid parameters', async () => {
+    const { status } = await requests.sendMail({
+      email: 'invalid',
+      survey_id: 'invalid',
+    });
+
+    expect(status).toBe(400);
+  });
 });
