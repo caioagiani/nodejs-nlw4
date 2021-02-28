@@ -10,7 +10,7 @@ describe('Answer', () => {
     await connection.runMigrations();
   });
 
-  it('should receive a response with the survey note', async () => {
+  it('should receive survey note', async () => {
     const sendMailResponse = await requests.sendMail();
 
     const { status, body } = await request(app).get(
@@ -20,5 +20,11 @@ describe('Answer', () => {
     expect(status).toBe(200);
     expect(body).toHaveProperty('id');
     expect(body.value).toBe(7);
+  });
+
+  it('should return an error when receive survey note', async () => {
+    const { status } = await request(app).get('/answers/7?u=invalid_id');
+
+    expect(status).toBe(400);
   });
 });
