@@ -2,11 +2,15 @@ import request from 'supertest';
 import { app } from '../../src/app';
 
 const requests = {
-  async users() {
-    const usersResponse = await request(app).post('/users').send({
-      email: 'jest@test.com',
-      name: 'Test Jest',
-    });
+  async users(body = {}) {
+    const bodyRequest = !Object.keys(body).length
+      ? {
+          email: 'jest@test.com',
+          name: 'Test Jest',
+        }
+      : body;
+
+    const usersResponse = await request(app).post('/users').send(bodyRequest);
 
     return usersResponse;
   },
