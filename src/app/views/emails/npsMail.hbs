@@ -1,0 +1,63 @@
+<style>
+  .container {
+    width: 800px;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .level {
+    display: flex;
+    margin: 10px;
+    justify-content: space-between;
+    width: 350px;
+  }
+
+  .answers {
+    width: 350px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .options {
+    padding: 9px;
+    background: #8257e6;
+    color: #fff;
+    border-radius: 6px;
+    width: 15px;
+    text-align: center;
+    text-decoration: none;
+  }
+</style>
+
+<div class="container">
+  <label>Olá <strong>{{name}}</strong>, tudo bem?</label>
+
+  <h2>{{title}}</h2>
+
+  <strong>{{description}}</strong>
+
+  <div class="level">
+    <span>Pouco provável</span>
+    <span>Muito provável</span>
+  </div>
+
+  <div class="answers">
+    <a class="options" target="_blank" rel="noopener" href="{{link}}/1?u={{user_id}}">1</a>
+    <a class="options" target="_blank" rel="noopener" href="{{link}}/2?u={{user_id}}">2</a>
+    <a class="options" target="_blank" rel="noopener" href="{{link}}/3?u={{user_id}}">3</a>
+    <a class="options" target="_blank" rel="noopener" href="{{link}}/4?u={{user_id}}">4</a>
+    <a class="options" target="_blank" rel="noopener" href="{{link}}/5?u={{user_id}}">5</a>
+    <a class="options" target="_blank" rel="noopener" href="{{link}}/6?u={{user_id}}">6</a>
+    <a class="options" target="_blank" rel="noopener" href="{{link}}/7?u={{user_id}}">7</a>
+    <a class="options" target="_blank" rel="noopener" href="{{link}}/8?u={{user_id}}">8</a>
+    <a class="options" target="_blank" rel="noopener" href="{{link}}/9?u={{user_id}}">9</a>
+    <a class="options" target="_blank" rel="noopener" href="{{link}}/10?u={{user_id}}">10</a>
+  </div>
+
+  <strong>Sua opiniao é muito importante para nós</strong>
+  <h3>Equipe | <strong>NLW4</strong></h3>
+</div>

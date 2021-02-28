@@ -1,7 +1,19 @@
+import fs from 'fs';
+import { compile } from 'handlebars';
 import { createTransport } from 'nodemailer';
 
 class SendMailService {
-  async execute(to: string, subject: string, body: string) {
+  async execute({ name, to, subject, description, path, user_id, link }) {
+    const templateFileContent = fs.readFileSync(path).toString('utf8');
+    const mailTemplateParse = compile(templateFileContent);
+    const html = mailTemplateParse({
+      name,
+      title: subject,
+      description,
+      user_id,
+      link,
+    });
+
     const transporter = createTransport({
       host: process.env.SMTP_HOST,
       port: 587,
@@ -14,7 +26,7 @@ class SendMailService {
     await transporter.sendMail({
       to,
       subject,
-      html: body,
+      html,
       from: `noreply <${process.env.SMTP_USER}>`,
     });
   }
