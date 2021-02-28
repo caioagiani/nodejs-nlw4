@@ -1,7 +1,7 @@
 {
   "name": "nlw4",
   "version": "1.0.0",
-  "description": "API Rest | NextLevelWeeb#4 - @rocketseat",
+  "description": "API Rest | NextLevelWeek#4 - @rocketseat",
   "main": "src/server.ts",
   "license": "MIT",
   "keywords": [
