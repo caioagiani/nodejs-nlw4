@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { getCustomRepository } from 'typeorm';
 import { resolve } from 'path';
+import { UUIDv4 } from 'uuid-v4-validator';
 import SendMailService from '../../services/SendMailService';
 import { SurveysRepository } from '../repositories/SurveysRepository';
 import { SurveysUsersRepository } from '../repositories/SurveysUsersRepository';
@@ -9,6 +10,12 @@ import { UsersRepository } from '../repositories/UsersRepository';
 class MailController {
   async execute(req: Request, res: Response) {
     const { email, survey_id } = req.body;
+
+    if (!UUIDv4.validate(String(survey_id))) {
+      return res.status(400).json({
+        error: 'UUID is invalid.',
+      });
+    }
 
     const usersRepository = getCustomRepository(UsersRepository);
     const surveysRepository = getCustomRepository(SurveysRepository);
