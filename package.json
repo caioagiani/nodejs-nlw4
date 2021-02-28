@@ -40,7 +40,8 @@
     "pg": "^8.5.1",
     "reflect-metadata": "^0.1.13",
     "typeorm": "^0.2.31",
-    "uuid": "^8.3.2"
+    "uuid": "^8.3.2",
+    "uuid-v4-validator": "^2.0.0"
   },
   "devDependencies": {
     "@types/express": "^4.17.11",
