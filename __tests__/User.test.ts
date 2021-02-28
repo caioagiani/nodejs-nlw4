@@ -1,7 +1,5 @@
-import request from 'supertest';
-import { app } from '../src/app';
-
 import createConnection from '../src/database';
+import { requests } from './utils/requests';
 
 describe('Users', () => {
   beforeAll(async () => {
@@ -10,23 +8,15 @@ describe('Users', () => {
   });
 
   it('should create a new user', async () => {
-    const response = await request(app).post('/users').send({
-      email: 'jest@test.com',
-      name: 'Test Jest',
-    });
-
-    const { status, body } = response;
+    const { body, status } = await requests.users();
 
     expect(status).toBe(201);
     expect(body).toHaveProperty('id');
   });
 
   it('should not create a user with an existing email', async () => {
-    const response = await request(app).post('/users').send({
-      email: 'jest@test.com',
-      name: 'Test Jest',
-    });
+    const { status } = await requests.users();
 
-    expect(response.status).toBe(400);
+    expect(status).toBe(400);
   });
 });

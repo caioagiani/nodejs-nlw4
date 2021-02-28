@@ -1,5 +1,4 @@
-import request from 'supertest';
-import { app } from '../src/app';
+import { requests } from './utils/requests';
 
 import createConnection from '../src/database';
 
@@ -10,21 +9,14 @@ describe('Survey', () => {
   });
 
   it('should create a new survey', async () => {
-    const response = await request(app).post('/surveys').send({
-      title: 'Title Jest',
-      description: 'Description Jest',
-    });
-
-    const { status, body } = response;
+    const { body, status } = await requests.surveys();
 
     expect(status).toBe(201);
     expect(body).toHaveProperty('id');
   });
 
   it('should get all surveys', async () => {
-    const response = await request(app).get('/surveys');
-
-    const { status, body } = response;
+    const { body, status } = await requests.surveysAll();
 
     expect(status).toBe(200);
     expect(body.length).toBe(1);

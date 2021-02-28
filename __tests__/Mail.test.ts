@@ -1,7 +1,5 @@
-import request from 'supertest';
-import { app } from '../src/app';
-
 import createConnection from '../src/database';
+import { requests } from './utils/requests';
 
 describe('Mail', () => {
   beforeAll(async () => {
@@ -10,20 +8,7 @@ describe('Mail', () => {
   });
 
   it('should create user for relationship survey and sendmail', async () => {
-    const userResponse = await request(app).post('/users').send({
-      email: 'jest@test.com',
-      name: 'Test Jest',
-    });
-
-    const surveyResponse = await request(app).post('/surveys').send({
-      title: 'Title Jest',
-      description: 'Description Jest',
-    });
-
-    const { status, body } = await request(app).post('/mail/send').send({
-      email: userResponse.body.email,
-      survey_id: surveyResponse.body.id,
-    });
+    const { status, body } = await requests.sendMail();
 
     expect(status).toBe(200);
     expect(body).toHaveProperty('id');
