@@ -22,7 +22,7 @@
   },
   "contributors": [
     {
-      "name": "Dani",
+      "name": "Daniele Evangelista",
       "email": "dani@rocketseat.com.br",
       "url": "https://nextlevelweek.com"
     }
@@ -30,8 +30,8 @@
   "scripts": {
     "dev": "ts-node-dev --transpile-only --ignore-watch node_modules -r dotenv/config src/server.ts",
     "dev:db": "./src/scripts/database.sh",
-    "typeorm": "ts-node-dev node_modules/typeorm/cli.js",
-    "dev:test": "NODE_ENV=test jest --setupFiles dotenv/config --detectOpenHandles --forceExit"
+    "dev:test": "NODE_ENV=test jest --setupFiles dotenv/config --detectOpenHandles --forceExit",
+    "typeorm": "ts-node-dev node_modules/typeorm/cli.js"
   },
   "dependencies": {
     "express": "^4.17.1",
