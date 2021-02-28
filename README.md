@@ -26,6 +26,8 @@
 ![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-31648C?style=flat&logo=postgresql&color=gray&logoColor=31648C)
 ![Docker](https://img.shields.io/badge/-Docker-47b3f5?style=flat&logo=docker&color=gray&logoColor=47b3f5)
 ![TypeORM](https://img.shields.io/badge/-TypeORM-F9AB02?style=flat&logo=typeorm&color=gray&logoColor=F9AB02)
+![Eslint](https://img.shields.io/badge/-Eslint-4930BD?style=flat&logo=eslint&color=gray&logoColor=4930BD)
+![Prettier](https://img.shields.io/badge/-Prettier-F9AB02?style=flat&logo=prettier&color=gray&logoColor=F9AB02)
 ![jest](https://img.shields.io/badge/-jest-E0301E?style=flat&logo=jest&color=gray&logoColor=E0301E)
 
 ## Start application
