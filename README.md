@@ -39,11 +39,14 @@ $ git clone git@github.com:caioagiani/nodejs-nlw4.git
 # Open folder
 $ cd nodejs-nlw4
 
+# Install dependencies
+$ yarn install
+
 # Set up variable environments
 $ cp .env.example .env
 
-# Install dependencies
-$ yarn install
+# Execution permission arrow in script
+$ sudo chmod +x src/scripts/database.sh
 
 # Start database postgress with docker
 $ yarn dev:db
