@@ -53,6 +53,9 @@ $ yarn typeorm migration:run
 
 # Run application
 $ yarn dev
+
+# Run tests
+$ yarn dev:test
 ```
 
 ## Tests
