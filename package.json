@@ -48,7 +48,7 @@
     "@types/jest": "26.0.23",
     "@types/nodemailer": "6.4.2",
     "@types/supertest": "2.0.11",
-    "@types/uuid": "8.3.0",
+    "@types/uuid": "8.3.4",
     "@typescript-eslint/eslint-plugin": "4.26.0",
     "@typescript-eslint/parser": "4.26.0",
     "dotenv": "10.0.0",
